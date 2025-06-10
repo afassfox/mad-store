@@ -5,6 +5,7 @@ import { Card, CardContent } from "./ui/card";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface Props {
   products: Stripe.Product[];
@@ -37,9 +38,11 @@ export const Carousel = ({ products }: Props) => {
         </div>
       )}
       <CardContent className='absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50'>
-        <Button className='mt-4 bg-black text-white cursor-pointer'>
-          View Details
-        </Button>
+        <Link href={`/products/${currentProduct.id}`}>
+          <Button className='mt-4 bg-black text-white cursor-pointer'>
+            View Details
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );
