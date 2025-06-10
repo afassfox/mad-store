@@ -1,7 +1,7 @@
 "use client";
 
 import Stripe from "stripe";
-import { Card, CardContent, CardTitle } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -22,8 +22,6 @@ export const Carousel = ({ products }: Props) => {
   }, [products.length]);
 
   const currentProduct = products[current];
-
-  const price = currentProduct.default_price as Stripe.Price;
 
   return (
     <Card className='relative overflow-hidden rounded-lg shadow-md border-gray-300'>
